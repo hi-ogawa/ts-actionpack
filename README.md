@@ -69,5 +69,5 @@ npm run test
 npm run format
 
 # Publish
-npm run package
+npm run deploy
 ```
