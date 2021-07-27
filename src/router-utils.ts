@@ -1,15 +1,16 @@
-import type { Router } from "express";
-import type {
-  HttpMethod,
-  Path,
-  ControllerConstructor,
-  Action,
-  ActionName,
-} from "./types";
+import type { Request, Response, Router } from "express";
+import type { RoutingMethod, Path, Action, ActionName } from "./types";
+import type { AbstractController } from "./abstract-controller";
 
-export function defineRoute<T>(
+// TODO: Rename to ControllerClass
+export type ControllerConstructor<T extends AbstractController> = new (
+  req: Request,
+  res: Response
+) => T;
+
+export function defineRoute<T extends AbstractController>(
   router: Router,
-  method: HttpMethod,
+  method: RoutingMethod,
   path: Path,
   klass: ControllerConstructor<T>,
   actionName: ActionName<T>
@@ -20,14 +21,14 @@ export function defineRoute<T>(
       // NOTE: this type casting is safe since `ActionName<T>` ensures
       //       the type of the argument at the caller site.
       const action = controller[actionName] as unknown as Action<T>;
-      await action.apply(controller);
+      await controller.processAction(action.bind(controller));
     } catch (e) {
       next(e);
     }
   });
 }
 
-export type RouterDSL = <T>(
+export type RouterDSL = <T extends AbstractController>(
   path: Path,
   klass: ControllerConstructor<T>,
   actionaName: ActionName<T>
@@ -35,8 +36,9 @@ export type RouterDSL = <T>(
 
 export function makeRouterDSL(
   router: Router
-): Record<Uppercase<HttpMethod>, RouterDSL> {
+): Record<Uppercase<RoutingMethod>, RouterDSL> {
   return {
+    ALL: (...args) => defineRoute(router, "all", ...args),
     GET: (...args) => defineRoute(router, "get", ...args),
     POST: (...args) => defineRoute(router, "post", ...args),
     PATCH: (...args) => defineRoute(router, "patch", ...args),

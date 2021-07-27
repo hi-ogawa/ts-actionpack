@@ -47,8 +47,8 @@ Via controller inheritance, it's easy to extend functionalities e.g.
 - [Action callback](tests/examples/ex03-callback/controllers/home.ts)
 - [Authentication](tests/examples/ex03-callback/controllers/home.ts)
 - [Handling multipart/form-data](tests/examples/ex02-promisify-middleware/controllers/home.ts)
-- TODO: Request parameter validation
-- TODO: Mixin style extension
+- [Handling error](tests/examples/ex04-validation/controllers/application.ts)
+- [Parameter validation](tests/examples/ex04-validation/controllers/home.ts)
 
 See more examples at [tests/examples](tests/examples).
 
