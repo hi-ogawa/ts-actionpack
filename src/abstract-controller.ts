@@ -8,3 +8,8 @@ export abstract class AbstractController {
     await action();
   }
 }
+
+export type ControllerConstructor<T extends AbstractController> = new (
+  req: Request,
+  res: Response
+) => T;

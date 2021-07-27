@@ -11,7 +11,7 @@ describe("ex04-validation", () => {
     });
 
     it("case2", async () => {
-      const res = await supertest(app).get("/add").query({ x: 1, y: 2});
+      const res = await supertest(app).get("/add").query({ x: 1, y: 2 });
       assert.equal(res.status, 200);
       assert.equal(res.body.data, 3);
     });

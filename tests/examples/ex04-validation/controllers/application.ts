@@ -1,4 +1,4 @@
-import { BaseController } from "./base";
+import { BaseController } from "../../../../src";
 import Ajv from "ajv";
 
 const ajv = new Ajv({

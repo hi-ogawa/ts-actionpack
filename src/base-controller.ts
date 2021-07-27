@@ -1,16 +1,12 @@
 import {
   AbstractController,
   ControllerConstructor,
-  Action,
-  ActionName,
-  BoundAction,
-} from "../../../../src";
+} from "./abstract-controller";
+import { Action, ActionName, BoundAction } from "./types";
 
 type BeforeActionReturnType<T> = (
   prototype: T,
   methodName: string,
-  // TODO: Type check fails for the field "descriptor.set".
-  //       For now we filter out since we don't use it anyway.
   descriptor: Pick<TypedPropertyDescriptor<Action<T>>, "value">
 ) => void;
 

@@ -1,4 +1,4 @@
-import { BaseController } from "./base";
+import { BaseController } from "../../../../src";
 import { config } from "../config";
 
 const validCredential = Buffer.from(

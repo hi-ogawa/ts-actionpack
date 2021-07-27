@@ -1,12 +1,9 @@
-import type { Request, Response, Router } from "express";
+import type { Router } from "express";
 import type { RoutingMethod, Path, Action, ActionName } from "./types";
-import type { AbstractController } from "./abstract-controller";
-
-// TODO: Rename to ControllerClass
-export type ControllerConstructor<T extends AbstractController> = new (
-  req: Request,
-  res: Response
-) => T;
+import type {
+  AbstractController,
+  ControllerConstructor,
+} from "./abstract-controller";
 
 export function defineRoute<T extends AbstractController>(
   router: Router,

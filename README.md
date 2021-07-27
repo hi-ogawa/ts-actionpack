@@ -5,7 +5,7 @@ Tiny library to help writing ["one controller instance per request"](https://git
 This library includes:
 
 - [Type-safe DSL to define routes](src/router-utils.ts)
-- [Base controller class](src/abstract-controller.ts)
+- [Base controller class](src/base-controller.ts)
 - [Utility to reuse middleware ecosystem](src/middleware-utils.ts)
 
 The aim is to provide something simple but type-safe equivalent of [Ruby on Rails Action Pack](https://github.com/rails/rails/blob/main/actionpack/README.rdoc).
