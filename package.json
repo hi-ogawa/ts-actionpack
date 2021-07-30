@@ -1,6 +1,6 @@
 {
   "name": "ts-actionpack",
-  "version": "0.0.4",
+  "version": "1.0.0-alpha.0",
   "description": "Tiny library for \"one controller instance per request\" backend in typescript",
   "homepage": "https://github.com/hi-ogawa/ts-actionpack",
   "scripts": {
