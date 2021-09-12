@@ -1,9 +1,9 @@
-import { AbstractController, promisifyMiddleware } from "../../../../src";
+import { BaseController, promisifyMiddleware } from "../../../../src";
 import * as Multer from "multer";
 
 const multer = Multer({ storage: Multer.memoryStorage() });
 
-export abstract class ApplicationController extends AbstractController {
+export abstract class ApplicationController extends BaseController {
   protected success(data: any) {
     this.res.json({ status: "success", data });
   }

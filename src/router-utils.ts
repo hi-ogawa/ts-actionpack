@@ -1,20 +1,23 @@
-import type { Router } from "express";
-import type { RoutingMethod, Path, Action, ActionName } from "./types";
 import type {
-  AbstractController,
-  ControllerConstructor,
-} from "./abstract-controller";
+  Router,
+  RoutingMethod,
+  Path,
+  Action,
+  ActionName,
+  IController,
+  IControllerConstructor,
+} from "./types";
 
-export function defineRoute<T extends AbstractController>(
+export function defineRoute<T extends IController>(
   router: Router,
   method: RoutingMethod,
   path: Path,
-  klass: ControllerConstructor<T>,
+  Klass: IControllerConstructor<T>,
   actionName: ActionName<T>
 ) {
   router[method](path, async (req, res, next) => {
     try {
-      const controller = new klass(req, res);
+      const controller = new Klass(req, res);
       // NOTE: this type casting is safe since `ActionName<T>` ensures
       //       the type of the argument at the caller site.
       const action = controller[actionName] as unknown as Action<T>;
@@ -25,9 +28,9 @@ export function defineRoute<T extends AbstractController>(
   });
 }
 
-export type RouterDSL = <T extends AbstractController>(
+export type RouterDSL = <T extends IController>(
   path: Path,
-  klass: ControllerConstructor<T>,
+  klass: IControllerConstructor<T>,
   actionaName: ActionName<T>
 ) => void;
 

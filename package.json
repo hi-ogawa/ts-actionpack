@@ -8,8 +8,8 @@
     "build:clean": "rm -rf build",
     "build:refresh": "npm run build:clean && npm run build",
     "test": "NODE_ENV=test mocha",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
     "example": "nodemon build/tests/examples/runner",
     "package": "rm -rf build/package && mkdir -p build/package && cp build/src/* package.json README.md build/package",
     "deploy": "npm run build:refresh && npm run package && npm publish ./build/package"

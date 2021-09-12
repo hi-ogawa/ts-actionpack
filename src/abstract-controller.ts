@@ -1,5 +1,4 @@
-import type { Request, Response } from "express";
-import type { BoundAction } from "./types";
+import type { BoundAction, Request, Response } from "./types";
 
 export abstract class AbstractController {
   constructor(protected req: Request, protected res: Response) {}

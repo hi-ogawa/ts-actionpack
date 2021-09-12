@@ -1,10 +1,10 @@
 import "mocha";
 import { Router } from "express";
-import { makeRouterDSL, AbstractController } from "../src";
+import { makeRouterDSL, BaseController } from "../src";
 
 describe("ts-actionpack", () => {
   it("case1", () => {
-    class Controller extends AbstractController {
+    class Controller extends BaseController {
       index() {}
       show() {}
       create() {}

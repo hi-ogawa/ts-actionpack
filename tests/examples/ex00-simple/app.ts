@@ -1,8 +1,8 @@
 import * as express from "express";
-import { makeRouterDSL, AbstractController } from "../../../src";
+import { makeRouterDSL, BaseController } from "../../../src";
 
 // Define controller
-class HomeController extends AbstractController {
+class HomeController extends BaseController {
   index() {
     this.res.send("Hello");
   }

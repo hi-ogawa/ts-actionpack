@@ -1,4 +1,8 @@
-import { BaseController } from "../../../../src";
+import {
+  BaseController,
+  BeforeActionMixin,
+  HandleErrorMixin,
+} from "../../../../src";
 import Ajv from "ajv";
 
 const ajv = new Ajv({
@@ -6,7 +10,13 @@ const ajv = new Ajv({
   coerceTypes: true,
 });
 
-export class ApplicationController extends BaseController {
+// prettier-ignore
+const BaseApplicationController =
+  HandleErrorMixin(
+    BeforeActionMixin(
+      BaseController));
+
+export class ApplicationController extends BaseApplicationController {
   protected success(data: any) {
     this.res.json({ status: "success", data });
   }
@@ -31,7 +41,7 @@ export class ApplicationController extends BaseController {
     });
   }
 
-  protected handleError(error: Error) {
+  handleError(error: Error) {
     if (error instanceof Ajv.ValidationError) {
       this.error(`Validation error: ${error}`);
       return;

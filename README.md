@@ -14,10 +14,10 @@ The aim is to provide something simple but type-safe equivalent of [Ruby on Rail
 
 ```typescript
 import * as express from "express";
-import { makeRouterDSL, AbstractController } from "ts-actionpack";
+import { makeRouterDSL, BaseController } from "ts-actionpack";
 
 // Define controller
-class HomeController extends AbstractController {
+class HomeController extends BaseController {
   index() {
     this.res.send("Hello");
   }

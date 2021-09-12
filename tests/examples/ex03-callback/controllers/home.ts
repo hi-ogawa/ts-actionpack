@@ -10,9 +10,7 @@ export class HomeController extends ApplicationController {
     this.success("1terces");
   }
 
-  @HomeController.BeforeAction(function (this) {
-    this.basicAuthenticate();
-  })
+  @HomeController.BeforeAction(HomeController.prototype.basicAuthenticate)
   async secret2() {
     this.success("2terces");
   }

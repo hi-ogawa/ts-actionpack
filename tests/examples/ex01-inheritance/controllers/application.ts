@@ -1,6 +1,6 @@
-import { AbstractController } from "../../../../src";
+import { BaseController } from "../../../../src";
 
-export abstract class ApplicationController extends AbstractController {
+export abstract class ApplicationController extends BaseController {
   protected success(data: any) {
     this.res.json({ status: "success", data });
   }
