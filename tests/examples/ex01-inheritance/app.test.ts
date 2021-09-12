@@ -1,6 +1,8 @@
 import "mocha";
+
 import * as assert from "assert/strict";
 import * as supertest from "supertest";
+
 import { app } from "./app";
 
 describe("ex01-inheritance", () => {

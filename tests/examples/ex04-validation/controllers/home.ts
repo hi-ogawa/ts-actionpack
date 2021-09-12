@@ -25,7 +25,7 @@ export class HomeController extends ApplicationController {
 
   @HomeController.ValidateQuery(schemaX)
   double() {
-    const { x } = this.req.query as any;
+    const { x } = this.req.query as any as { x: number };
     this.success(2 * x);
   }
 }

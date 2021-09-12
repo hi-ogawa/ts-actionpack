@@ -1,6 +1,6 @@
-import * as path from "path";
-import * as morgan from "morgan";
 import * as express from "express";
+import * as morgan from "morgan";
+import * as path from "path";
 
 const app = express();
 app.use(morgan("combined"));

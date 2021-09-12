@@ -1,6 +1,8 @@
 import "mocha";
+
 import { Router } from "express";
-import { makeRouterDSL, BaseController } from "../src";
+
+import { BaseController, makeRouterDSL } from "../src";
 
 describe("ts-actionpack", () => {
   it("case1", () => {

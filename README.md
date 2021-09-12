@@ -65,8 +65,8 @@ npm run example -- ex00-simple
 # Testing
 npm run test
 
-# Formating
-npm run format
+# Linting
+npm run lint
 
 # Publish
 npm run deploy

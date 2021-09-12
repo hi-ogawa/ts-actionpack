@@ -14,7 +14,7 @@ export class ApplicationController extends BaseApplicationController {
     this.res.json({ status: "success", data });
   }
 
-  protected error(message?: string, status: number = 400) {
+  protected error(message?: string, status = 400) {
     this.res.status(status).json({ status: "error", message });
   }
 

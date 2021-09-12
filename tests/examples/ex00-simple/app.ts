@@ -1,5 +1,6 @@
 import * as express from "express";
-import { makeRouterDSL, BaseController } from "../../../src";
+
+import { BaseController, makeRouterDSL } from "../../../src";
 
 // Define controller
 class HomeController extends BaseController {

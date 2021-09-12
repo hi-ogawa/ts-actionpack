@@ -1,11 +1,11 @@
 import type {
-  Router,
-  RoutingMethod,
-  Path,
   Action,
   ActionName,
   IController,
   IControllerConstructor,
+  Path,
+  Router,
+  RoutingMethod,
 } from "./types";
 
 export function defineRoute<T extends IController>(
